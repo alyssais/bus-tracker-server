@@ -7,7 +7,7 @@ request = require "request"
 services = fs.readFileSync("services.txt").toString().trim().split("\n")
 
 app.http().io()
-app.listen(4567)
+app.listen(process.env.PORT or 4567)
 
 updateVehicles = (done) ->
   async.eachLimit services, 5, (service, done) ->
